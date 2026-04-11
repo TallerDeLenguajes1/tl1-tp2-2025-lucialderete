@@ -13,7 +13,7 @@ typedef struct
 
 // funciones
 void cargarDatosPc(compu pcs[], char tipos[][10], int cantPc);
-void listarPCs(compu pcs[], int cantPc);
+void listarPCs(compu pcs[], char tipos[][10], int cantPc);
 void mostrarMasAntigua(compu pcs[], int cantPc);
 void mostrarMasVeloz(compu pcs[], int cantPc);
 void librarMemoria(compu pcs[], int cantPc);
@@ -26,6 +26,7 @@ int main()
     srand(time(NULL));
     compu pcs[cantPc];
     cargarDatosPc(pcs, tipos, cantPc);
+    listarPCs(pcs[], tipos, cantPc);
 
     return 0;
 }
@@ -40,5 +41,16 @@ void cargarDatosPc(compu pcs[], char tipos[][10], int cantPc)
         pcs[i].cant_nucleos = 1 + rand() % 8;
         indice = rand() % 6;
         pcs[i].tipo_cpu = tipos[indice];
+    }
+}
+
+void listarPCs(compu pcs[], char tipos[][10], int cantPc){
+    printf("--lista de computadoras--\n");
+    for (int i=0; i<cantPc; i++){
+        printf("Computadora %d: \n", i+1);
+        printf("Velocidad de procesamiento: %d GHz\n", pcs[i].velocidad);
+        printf("Anio de fabricacion: %d\n", pcs[i].anio);
+        printf("Cantidad de nucleos: %d\n", pcs[i].cant_nucleos);
+        printf("Tipo de procesador: %c \n", pcs[i].tipo_cpu);
     }
 }
