@@ -64,7 +64,7 @@ void mostrarMasAntigua(compu pcs[], int cantPc, char tipos[][10])
     printf("---computadora mas antigua---\n");
 
     int antigua = 2024;
-    int indice;
+    int indice=0;
     for (int i = 0; i < cantPc; i++)
     {
         if (pcs[i].anio < antigua)
@@ -83,7 +83,7 @@ void mostrarMasAntigua(compu pcs[], int cantPc, char tipos[][10])
 
 void mostrarMasVeloz(compu pcs[], int cantPc, char tipos[][10]){
     printf("--computadora con mayor velocidad de procesamimento---\n");
-    int indice;
+    int indice=0;
     int veloz = 0;
     for(int i=0; i<cantPc; i++){
         if(pcs[i].velocidad > veloz){
